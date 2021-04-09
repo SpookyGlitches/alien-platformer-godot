@@ -8,129 +8,118 @@
 [ext_resource path="res://Objects/Fall/FallArea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Potion/Potion.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/Spike/Spike.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Turret/Turret.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Stepper/Stepper.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Actors/Monster/Monster.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Objects/Turret/Turret.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Spike/Spike.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Environment/pixels-1617958858866-2014.jpg" type="Texture" id=13]
 
 [node name="Level7" type="Node2D"]
 script = ExtResource( 4 )
 __meta__ = {
+"_edit_horizontal_guides_": [ 78.8089 ],
 "_edit_vertical_guides_": [ 1440.22, 959.707 ]
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 903.075, 182.866 )
+position = Vector2( 30.6785, 186.933 )
 
 [node name="Door" parent="." instance=ExtResource( 7 )]
 position = Vector2( 951.246, 183.935 )
 
 [node name="Key1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 825.22, 104.238 )
+position = Vector2( 871.652, 87.5703 )
 
 [node name="TileMap" parent="." instance=ExtResource( 2 )]
-tile_data = PoolIntArray( 65535, 46, 0, 4, 31, 0, 43, 31, 0, 60, 46, 0, 131071, 46, 0, 65540, 32, 0, 65579, 30, 0, 65596, 46, 0, 196607, 46, 0, 131076, 32, 0, 131091, 43, 0, 131092, 41, 0, 131093, 41, 0, 131094, 41, 0, 131095, 43, 0, 131115, 30, 0, 131132, 46, 0, 262143, 46, 0, 196612, 32, 0, 196627, 42, 0, 196628, 41, 0, 196629, 41, 0, 196630, 41, 0, 196631, 40, 0, 196651, 29, 0, 196668, 46, 0, 327679, 46, 0, 262148, 29, 0, 262186, 28, 0, 262204, 46, 0, 393215, 46, 0, 327683, 28, 0, 327690, 23, 0, 327691, 23, 0, 327692, 23, 0, 327706, 43, 0, 327707, 41, 0, 327708, 41, 0, 327709, 41, 0, 327710, 43, 0, 327715, 23, 0, 327716, 23, 0, 327717, 23, 0, 327740, 46, 0, 458751, 46, 0, 393242, 42, 0, 393243, 41, 0, 393244, 41, 0, 393245, 41, 0, 393246, 40, 0, 393266, 43, 0, 393267, 41, 0, 393268, 41, 0, 393269, 41, 0, 393270, 43, 0, 393276, 46, 0, 524287, 46, 0, 458802, 42, 0, 458803, 41, 0, 458804, 41, 0, 458805, 41, 0, 458806, 40, 0, 458812, 46, 0, 589823, 46, 0, 524304, 24, 0, 524305, 24, 0, 524306, 24, 0, 524330, 24, 0, 524331, 24, 0, 524332, 24, 0, 524348, 46, 0, 655359, 46, 0, 589846, 43, 0, 589847, 41, 0, 589848, 41, 0, 589849, 41, 0, 589850, 43, 0, 589884, 46, 0, 720895, 46, 0, 655382, 42, 0, 655383, 41, 0, 655384, 41, 0, 655385, 41, 0, 655386, 40, 0, 655420, 46, 0, 786431, 46, 0, 720910, 24, 0, 720911, 24, 0, 720912, 24, 0, 720936, 24, 0, 720937, 24, 0, 720938, 24, 0, 720956, 46, 0, 851967, 46, 0, 786438, 10, 0, 786439, 12, 0, 786487, 17, 0, 786488, 17, 0, 786489, 18, 0, 786490, 11, 0, 786491, 12, 0, 786492, 46, 0, 917503, 46, 0, 851968, 10, 0, 851969, 11, 0, 851970, 12, 0, 851974, 13, 0, 851975, 15, 0, 852002, 19, 0, 852003, 17, 0, 852004, 17, 0, 852014, 43, 0, 852015, 41, 0, 852016, 41, 0, 852017, 41, 0, 852018, 43, 0, 852023, 13, 0, 852027, 15, 0, 852028, 46, 0, 983039, 46, 0, 917504, 13, 0, 917506, 18, 0, 917510, 13, 0, 917511, 15, 0, 917512, 17, 0, 917513, 17, 0, 917514, 17, 0, 917515, 17, 0, 917516, 10, 0, 917517, 11, 0, 917518, 12, 0, 917538, 13, 0, 917541, 16, 0, 917542, 10, 0, 917543, 11, 0, 917544, 12, 0, 917550, 42, 0, 917551, 41, 0, 917552, 41, 0, 917553, 41, 0, 917554, 40, 0, 917559, 13, 0, 917563, 15, 0, 917564, 46, 0, 1048575, 46, 0, 983040, 13, 0, 983042, 16, 0, 983046, 13, 0, 983054, 15, 0, 983074, 13, 0, 983080, 15, 0, 983095, 13, 0, 983099, 15, 0, 983100, 46, 0, 1114111, 46, 0, 1048576, 13, 0, 1048578, 15, 0, 1048582, 13, 0, 1048590, 15, 0, 1048600, 10, 0, 1048601, 11, 0, 1048602, 12, 0, 1048610, 13, 0, 1048616, 15, 0, 1048631, 13, 0, 1048635, 15, 0, 1048636, 46, 0, 1179647, 46, 0, 1245183, 46, 0, 1310719, 46, 0 )
+tile_data = PoolIntArray( 65535, 46, 0, 2, 31, 0, 39, 31, 0, 60, 46, 0, 131071, 46, 0, 65538, 29, 0, 65575, 32, 0, 65596, 46, 0, 196607, 46, 0, 131073, 28, 0, 131111, 29, 0, 131132, 46, 0, 262143, 46, 0, 196630, 43, 0, 196631, 41, 0, 196632, 41, 0, 196633, 41, 0, 196634, 43, 0, 196646, 28, 0, 196668, 46, 0, 327679, 46, 0, 262166, 42, 0, 262167, 41, 0, 262168, 41, 0, 262169, 41, 0, 262170, 40, 0, 262204, 46, 0, 393215, 46, 0, 327687, 43, 0, 327688, 41, 0, 327689, 41, 0, 327690, 41, 0, 327691, 43, 0, 327724, 23, 0, 327725, 23, 0, 327726, 23, 0, 327740, 46, 0, 458751, 46, 0, 393223, 42, 0, 393224, 41, 0, 393225, 41, 0, 393226, 41, 0, 393227, 40, 0, 393266, 43, 0, 393267, 41, 0, 393268, 41, 0, 393269, 41, 0, 393270, 43, 0, 393276, 46, 0, 524287, 46, 0, 458802, 42, 0, 458803, 41, 0, 458804, 41, 0, 458805, 41, 0, 458806, 40, 0, 458812, 46, 0, 589823, 46, 0, 524302, 25, 0, 524303, 25, 0, 524304, 25, 0, 524345, 536870936, 0, 524346, 536870936, 0, 524348, 46, 0, 655359, 46, 0, 589850, 22, 0, 589851, 22, 0, 589852, 22, 0, 589864, 43, 0, 589865, 41, 0, 589866, 41, 0, 589867, 41, 0, 589868, 43, 0, 589884, 46, 0, 720895, 46, 0, 655400, 42, 0, 655401, 41, 0, 655402, 41, 0, 655403, 41, 0, 655404, 40, 0, 655420, 46, 0, 786431, 46, 0, 720956, 46, 0, 851967, 46, 0, 786462, 10, 0, 786463, 12, 0, 786482, 23, 0, 786483, 24, 0, 786484, 25, 0, 786487, 17, 0, 786488, 17, 0, 786489, 18, 0, 786490, 11, 0, 786491, 12, 0, 786492, 46, 0, 917503, 46, 0, 851968, 10, 0, 851969, 11, 0, 851970, 12, 0, 851980, 10, 0, 851981, 11, 0, 851982, 12, 0, 851998, 13, 0, 852000, 12, 0, 852003, 10, 0, 852004, 12, 0, 852023, 13, 0, 852027, 15, 0, 852028, 46, 0, 983039, 46, 0, 917504, 13, 0, 917506, 18, 0, 917516, 13, 0, 917519, 11, 0, 917520, 11, 0, 917521, 12, 0, 917534, 13, 0, 917537, 11, 0, 917538, 11, 0, 917540, 15, 0, 917551, 19, 0, 917559, 13, 0, 917563, 15, 0, 917564, 46, 0, 1048575, 46, 0, 983040, 13, 0, 983042, 16, 0, 983052, 16, 0, 983057, 15, 0, 983070, 13, 0, 983076, 18, 0, 983087, 13, 0, 983088, 12, 0, 983095, 13, 0, 983099, 15, 0, 983100, 46, 0, 1114111, 46, 0, 1048576, 13, 0, 1048578, 15, 0, 1048588, 18, 0, 1048593, 15, 0, 1048606, 13, 0, 1048612, 16, 0, 1048623, 13, 0, 1048624, 15, 0, 1048631, 13, 0, 1048635, 15, 0, 1048636, 46, 0, 1179647, 46, 0, 1245183, 46, 0, 1310719, 46, 0 )
 
 [node name="Fall" parent="." instance=ExtResource( 6 )]
-position = Vector2( 134.547, 37.8498 )
+position = Vector2( 132.96, 39.4372 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
 [node name="Key2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 552.216, 201.023 )
+position = Vector2( 567.011, 202.683 )
 
 [node name="Key3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 359.998, 136.996 )
+position = Vector2( 379.598, 54.1424 )
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource( 3 )]
 
 [node name="Potion" parent="." instance=ExtResource( 8 )]
-position = Vector2( 147.348, 227.003 )
-
-[node name="Spike" parent="." instance=ExtResource( 9 )]
-position = Vector2( 200.845, 217.062 )
-
-[node name="Spike2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 119.996, 185.106 )
-
-[node name="Spike3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 251.093, 168.979 )
-
-[node name="Spike4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 423.989, 137.223 )
-
-[node name="Spike5" parent="." instance=ExtResource( 9 )]
-position = Vector2( 424.038, 73.0235 )
-
-[node name="Spike6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 568.123, 72.9898 )
-
-[node name="Stepper" parent="." instance=ExtResource( 10 )]
-position = Vector2( 316.124, 233.888 )
-idle_duration = 0.5
-move_to = Vector2( 112, 0 )
-speed = 4.0
-
-[node name="Stepper2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 481.451, 238.722 )
-idle_duration = 0.5
-move_to = Vector2( 0, -48 )
-speed = 4.0
-
-[node name="Stepper3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 762.65, 152.986 )
-idle_duration = 0.5
-move_to = Vector2( 0, -48 )
-speed = 4.0
-
-[node name="Stepper4" parent="." instance=ExtResource( 10 )]
-position = Vector2( 851.431, 202.708 )
-idle_duration = 0.5
-move_to = Vector2( 0, -48 )
-speed = 4.0
-
-[node name="Monster" parent="." instance=ExtResource( 11 )]
-position = Vector2( 345.271, 39.8134 )
-
-[node name="Monster2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 457.059, 88.0333 )
-
-[node name="Monster3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 392.803, 152.289 )
+position = Vector2( 268.247, 213.348 )
 
 [node name="Monster4" parent="." instance=ExtResource( 11 )]
 position = Vector2( 841.057, 104.028 )
 
 [node name="Monster5" parent="." instance=ExtResource( 11 )]
-position = Vector2( 773.443, 216.632 )
+position = Vector2( 152.057, 89.0046 )
 
-[node name="Turret" parent="." instance=ExtResource( 12 )]
-position = Vector2( 266.313, 168.981 )
+[node name="Monster6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 393.613, 57.4126 )
+
+[node name="Monster7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 678.592, 153.245 )
+
+[node name="Stepper" parent="." instance=ExtResource( 10 )]
+position = Vector2( 75.2803, 214.502 )
+idle_duration = 0.5
+move_to = Vector2( 0, -100 )
+speed = 4.0
+
+[node name="Stepper2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 472.595, 71.546 )
+idle_duration = 0.5
+move_to = Vector2( 64, 0 )
+speed = 4.0
+
+[node name="Stepper3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 310.097, 230.203 )
+idle_duration = 0.5
+move_to = Vector2( 0, -176 )
+speed = 4.0
+
+[node name="Stepper4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 627.686, 253.465 )
+idle_duration = 0.5
+move_to = Vector2( 80, 0 )
+speed = 5.0
+
+[node name="Turret" parent="." instance=ExtResource( 9 )]
+position = Vector2( 246.114, 120.985 )
 scale = Vector2( -1, 1 )
+
+[node name="Turret2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 459.376, 137.051 )
 wait_time = 3.0
 
-[node name="Turret2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 297.725, 121.158 )
-wait_time = 3.0
+[node name="Turret3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 814.44, 185.143 )
 
-[node name="Turret4" parent="." instance=ExtResource( 12 )]
-position = Vector2( 661.849, 169.072 )
-wait_time = 1.5
+[node name="Turret4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 631.422, 56.9848 )
+scale = Vector2( -1, 1 )
+wait_time = 2.0
 
-[node name="Turret5" parent="." instance=ExtResource( 12 )]
-position = Vector2( 697.341, 120.993 )
-wait_time = 5.0
+[node name="Spike" parent="." instance=ExtResource( 12 )]
+position = Vector2( 120.017, 73.183 )
 
-[node name="Turret6" parent="." instance=ExtResource( 12 )]
-position = Vector2( 586.146, 73.0651 )
-wait_time = 4.0
+[node name="Spike3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 183.991, 73.6506 )
 
-[node name="Turret3" parent="." instance=ExtResource( 12 )]
-position = Vector2( 198.508, 73.3982 )
-wait_time = 7.0
+[node name="Spike4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 218.305, 200.996 )
+
+[node name="Spike5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 359.969, 41.0669 )
+
+[node name="Spike6" parent="." instance=ExtResource( 12 )]
+position = Vector2( 584.006, 201.029 )
+
+[node name="Spike2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 264.083, 120.961 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
