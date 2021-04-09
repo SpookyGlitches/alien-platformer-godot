@@ -8,7 +8,6 @@
 [ext_resource path="res://Actors/Player/one_bit_transparent0449.png" type="Texture" id=6]
 [ext_resource path="res://Actors/Player/jump_jekkech.wav" type="AudioStream" id=7]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 6 ) ],

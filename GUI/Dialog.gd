@@ -12,7 +12,9 @@ func _input(event):
 	if event.is_action_pressed("ui_accept") && is_done:
 		get_tree().paused = false
 		queue_free()
-		
+	elif event.is_action_pressed("ui_accept") && (is_done == false):
+		anim_player.seek(anim_player.get_current_animation_length()-0.5)
+
 func set_message(msg):
 	get_node("ColorRect/ColorRect/HBoxContainer/Label").text = msg
 
