@@ -10,17 +10,24 @@ var jumping = false
 var _name = "Player"
 var keys = 0
 var is_alive = true
+var score = 0
 
 signal die
 
 func _ready():
 	pass
+	set_process(true)
 
+func _process(delta):
+	var LabelNode = get_parent().get_parent().get_node("Level1/CanvasLayer/Control/RichTextLabel")
+	LabelNode.text = str(score)
+	
 func _physics_process(_delta):
 	if !is_alive:
 		return
 	velocity.x = 0 ## Friction??
 	
+
 	var walk_east = Input.is_action_pressed("walk_east")
 	var walk_west = Input.is_action_pressed("walk_west")
 	var jump = Input.is_action_pressed("jump")
@@ -79,6 +86,7 @@ func die():
 		
 func collect_key():
 	keys += 1
+	score += 1
 
 	
 func get_keys():

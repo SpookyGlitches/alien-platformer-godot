@@ -62,3 +62,21 @@ editor_draw_drag_margin = true
 stream = ExtResource( 7 )
 volume_db = -5.0
 bus = "SFX"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+margin_left = 475.396
+margin_top = -12845.0
+margin_right = 883.396
+margin_bottom = -12409.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -3,11 +3,19 @@ extends Node2D
 var current_level
 var player_data = null
 var bgm_helper = 0
+#var lives = 3
+#var score = 0
 
 func _ready():
 	load_player_data()
 	apply_audio_settings()
+#	set_game_over()
 	pass
+#	set_process(true)
+
+#func _process(delta):
+#	var LabelNode = 
+#	LabelNode.text = str(score)
 
 func save():
 	var save_game = File.new()
@@ -40,7 +48,11 @@ func load_player_data():
 		return
 	player_data = {}
 	player_data = parse_json(file_data.get_line())
-
+	
+#func die():
+#   lives -= 1
+#   if lives <= 0:
+#	 game_over()
 
 func apply_audio_settings():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),player_data["Master"])

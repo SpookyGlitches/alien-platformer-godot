@@ -47,11 +47,33 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2( 0.5, 0.5 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 720, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 335.7, 120.479 )
-scale = Vector2( 0.372253, 0.372253 )
+position = Vector2( 13.6691, 78.7195 )
+scale = Vector2( 0.633742, 0.633742 )
 texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -720, -180 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+margin_left = 404.086
+margin_top = 6.73477
+margin_right = 473.086
+margin_bottom = 55.7348
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
