@@ -36,6 +36,7 @@ Signals - Godot recommends past tense of the function like ```_on_Area2D_body_en
 * [agentDD](https://freesound.org/people/AgentDD/sounds/246225/) - bat
 * [Brevicepts](https://freesound.org/people/Breviceps/sounds/454595/) - ufo
 * [Petr2010](https://freesound.org/people/Petr2010/sounds/234258/) - float ufo
+* [SmasterBirdies](https://freesound.org/people/SamsterBirdies/sounds/555384/) - space ambient
 
 #### Font
 

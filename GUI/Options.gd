@@ -90,4 +90,3 @@ func resume_audio():
 func _on_Enter_finished():
 	Global.bgm_helper = get_node("MenuBGM").get_playback_position()
 	get_tree().change_scene("res://GUI/MainMenu.tscn")
-

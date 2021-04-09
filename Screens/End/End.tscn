@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Tiles/TileStandsNew.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Actors/Player/one_bit_transparent0449.png" type="Texture" id=2]
@@ -6,17 +6,18 @@
 [ext_resource path="res://Actors/Player/one_bit_transparent0451.png" type="Texture" id=4]
 [ext_resource path="res://Actors/Player/one_bit_transparent0450.png" type="Texture" id=5]
 [ext_resource path="res://Screens/End/one_bit_transparent0973.png" type="Texture" id=6]
-[ext_resource path="res://Screens/End/one_bit_transparent0877.png" type="Texture" id=7]
+[ext_resource path="res://Screens/End/space.wav" type="AudioStream" id=7]
 [ext_resource path="res://Screens/End/454595__breviceps__cartoon-flying-ufo.wav" type="AudioStream" id=8]
 [ext_resource path="res://Screens/End/234258__petr2010__ufo-floating.wav" type="AudioStream" id=9]
-
-
-
-
+[ext_resource path="res://Screens/End/spotlight.png" type="Texture" id=10]
+[ext_resource path="res://GUI/ThemeUI.theme" type="Theme" id=11]
+[ext_resource path="res://GUI/one_bit_transparent0984.png" type="Texture" id=12]
+[ext_resource path="res://GUI/Dialog.gd" type="Script" id=13]
+[ext_resource path="res://Audio/text.wav" type="AudioStream" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "end"
-length = 17.0
+length = 19.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("KinematicBody2D:position")
 tracks/0/interp = 1
@@ -55,7 +56,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Sprite:scale")
-tracks/3/interp = 2
+tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -96,10 +97,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 7, 8, 10.5, 11.5 ),
+"times": PoolRealArray( 7, 8.1, 10.9, 12 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.14902 ), Color( 1, 1, 1, 0.14902 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.352941 ), Color( 1, 1, 1, 0.352941 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("KinematicBody2D:visible")
@@ -154,10 +155,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 3.2, 12.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 3.2, 12.5, 12.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ false, true, false, true ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("AudioStreamPlayer:volume_db")
@@ -166,10 +167,10 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 3.1, 7.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 3.1, 5.2, 12.3, 12.5, 14.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, -50.0 ]
+"values": [ 0.0, -50.0, -50.0, 0.0, -50.0 ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("AudioStreamPlayer2:playing")
@@ -190,10 +191,10 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 10.4, 12.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 7.9, 8.2, 10.7, 11.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0, -50.0 ]
+"values": [ 0.0, 0.0, 5.0, 5.0, -50.0 ]
 }
 tracks/15/type = "value"
 tracks/15/path = NodePath(".:modulate")
@@ -210,7 +211,7 @@ tracks/15/keys = {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
@@ -224,6 +225,49 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6, 6 )
 
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://GUI/VCR_OSD_MONO_1.001.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 12
+font_data = SubResource( 4 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "arrow"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 445.984, 236.684 ), Vector2( 445.984, 239 ), Vector2( 445.984, 236 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 3.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/ColorRect/HBoxContainer/Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.22951 ]
+}
+
 [node name="End" type="Node2D"]
 script = ExtResource( 3 )
 __meta__ = {
@@ -231,7 +275,7 @@ __meta__ = {
 }
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
-tile_data = PoolIntArray( 65535, 46, 0, 0, 1073741869, 0, 1, 1073741869, 0, 2, 1073741869, 0, 3, 1073741869, 0, 4, 1073741869, 0, 5, 1073741869, 0, 6, 1073741869, 0, 7, 1073741869, 0, 8, 1073741869, 0, 9, 1073741869, 0, 20, 1073741869, 0, 21, 1073741869, 0, 22, 1073741869, 0, 23, 1073741869, 0, 24, 1073741869, 0, 25, 1073741869, 0, 26, 1073741869, 0, 27, 1073741869, 0, 28, 1073741869, 0, 29, 1073741869, 0, 30, 46, 0, 131071, 46, 0, 65566, 46, 0, 196607, 46, 0, 131102, 46, 0, 262143, 1073741870, 0, 196638, 46, 0, 327679, 46, 0, 262174, 46, 0, 393215, 46, 0, 327710, 46, 0, 458751, 46, 0, 393246, 46, 0, 524287, 46, 0, 458782, 46, 0, 589823, 46, 0, 524318, 46, 0, 655359, 46, 0, 589854, 46, 0, 720895, 46, 0, 655390, 46, 0, 786431, 46, 0, 720896, 1073741869, 0, 720897, 1073741869, 0, 720898, 1073741869, 0, 720899, 1073741869, 0, 720900, 1073741869, 0, 720901, 1073741869, 0, 720902, 1073741869, 0, 720903, 1073741869, 0, 720904, 1073741869, 0, 720905, 1073741869, 0, 720906, 1073741869, 0, 720907, 1073741869, 0, 720908, 1073741869, 0, 720909, 1073741869, 0, 720910, 1073741869, 0, 720911, 1073741869, 0, 720912, 1073741869, 0, 720913, 1073741869, 0, 720914, 1073741869, 0, 720915, 1073741869, 0, 720916, 1073741869, 0, 720917, 1073741869, 0, 720918, 1073741869, 0, 720919, 1073741869, 0, 720920, 1073741869, 0, 720921, 1073741869, 0, 720922, 1073741869, 0, 720923, 1073741869, 0, 720924, 1073741869, 0, 720925, 1073741869, 0, 720926, 46, 0, 851967, 46, 0, 786462, 46, 0, 917503, 46, 0, 851979, 1073741869, 0, 851980, 1073741869, 0, 851988, 1073741869, 0, 851989, 1073741869, 0, 851998, 46, 0, 983039, 46, 0, 917504, 1073741869, 0, 917509, 1073741869, 0, 917510, 1073741869, 0, 917515, 1073741869, 0, 917516, 1073741869, 0, 917521, 1073741869, 0, 917522, 1073741869, 0, 917524, 1073741869, 0, 917525, 1073741869, 0, 917527, 1073741869, 0, 917528, 1073741869, 0, 917533, 1073741869, 0, 917534, 46, 0, 1048575, 46, 0, 983040, 1073741869, 0, 983042, 1073741869, 0, 983043, 1073741869, 0, 983045, 1073741869, 0, 983046, 1073741869, 0, 983048, 1073741869, 0, 983049, 1073741869, 0, 983051, 1073741869, 0, 983052, 1073741869, 0, 983054, 1073741869, 0, 983055, 1073741869, 0, 983057, 1073741869, 0, 983058, 1073741869, 0, 983060, 1073741869, 0, 983061, 1073741869, 0, 983063, 1073741869, 0, 983064, 1073741869, 0, 983066, 1073741869, 0, 983067, 1073741869, 0, 983069, 1073741869, 0, 983070, 46, 0, 1114111, 46, 0, 1048576, 1073741869, 0, 1048578, 1073741869, 0, 1048579, 1073741869, 0, 1048581, 1073741869, 0, 1048582, 1073741869, 0, 1048584, 1073741869, 0, 1048585, 1073741869, 0, 1048587, 1073741869, 0, 1048588, 1073741869, 0, 1048590, 1073741869, 0, 1048591, 1073741869, 0, 1048593, 1073741869, 0, 1048594, 1073741869, 0, 1048596, 1073741869, 0, 1048597, 1073741869, 0, 1048599, 1073741869, 0, 1048600, 1073741869, 0, 1048602, 1073741869, 0, 1048603, 1073741869, 0, 1048605, 1073741869, 0, 1048606, 46, 0 )
+tile_data = PoolIntArray( 65535, 46, 0, 0, 1073741869, 0, 1, 1073741869, 0, 2, 1073741869, 0, 3, 1073741869, 0, 4, 1073741869, 0, 5, 1073741869, 0, 6, 1073741869, 0, 7, 1073741869, 0, 8, 1073741869, 0, 9, 1073741869, 0, 20, 1073741869, 0, 21, 1073741869, 0, 22, 1073741869, 0, 23, 1073741869, 0, 24, 1073741869, 0, 25, 1073741869, 0, 26, 1073741869, 0, 27, 1073741869, 0, 28, 1073741869, 0, 29, 1073741869, 0, 30, 46, 0, 131071, 46, 0, 65566, 46, 0, 196607, 46, 0, 131102, 46, 0, 262143, 1073741870, 0, 196638, 46, 0, 327679, 46, 0, 262174, 46, 0, 393215, 46, 0, 327710, 46, 0, 458751, 46, 0, 393246, 46, 0, 524287, 46, 0, 458782, 46, 0, 589823, 46, 0, 524318, 46, 0, 655359, 46, 0, 589854, 46, 0, 720895, 46, 0, 655390, 46, 0, 786431, 46, 0, 720896, 1073741869, 0, 720897, 1073741869, 0, 720898, 1073741869, 0, 720899, 1073741869, 0, 720900, 1073741869, 0, 720901, 1073741869, 0, 720902, 1073741869, 0, 720903, 1073741869, 0, 720904, 1073741869, 0, 720905, 1073741869, 0, 720906, 1073741869, 0, 720907, 1073741869, 0, 720908, 1073741869, 0, 720909, 1073741869, 0, 720910, 1073741869, 0, 720911, 1073741869, 0, 720912, 1073741869, 0, 720913, 1073741869, 0, 720914, 1073741869, 0, 720915, 1073741869, 0, 720916, 1073741869, 0, 720917, 1073741869, 0, 720918, 1073741869, 0, 720919, 1073741869, 0, 720920, 1073741869, 0, 720921, 1073741869, 0, 720922, 1073741869, 0, 720923, 1073741869, 0, 720924, 1073741869, 0, 720925, 1073741869, 0, 720926, 46, 0, 851967, 46, 0, 786462, 46, 0, 917503, 46, 0, 851998, 46, 0, 983039, 46, 0, 917504, 1073741869, 0, 917509, 1073741869, 0, 917510, 1073741869, 0, 917515, 1073741869, 0, 917516, 1073741869, 0, 917521, 1073741869, 0, 917522, 1073741869, 0, 917527, 1073741869, 0, 917528, 1073741869, 0, 917533, 1073741869, 0, 917534, 46, 0, 1048575, 46, 0, 983040, 1073741869, 0, 983042, 1073741869, 0, 983043, 1073741869, 0, 983045, 1073741869, 0, 983046, 1073741869, 0, 983048, 1073741869, 0, 983049, 1073741869, 0, 983051, 1073741869, 0, 983052, 1073741869, 0, 983054, 1073741869, 0, 983055, 1073741869, 0, 983057, 1073741869, 0, 983058, 1073741869, 0, 983060, 1073741869, 0, 983061, 1073741869, 0, 983063, 1073741869, 0, 983064, 1073741869, 0, 983066, 1073741869, 0, 983067, 1073741869, 0, 983069, 1073741869, 0, 983070, 46, 0, 1114111, 46, 0, 1048576, 1073741869, 0, 1048578, 1073741869, 0, 1048579, 1073741869, 0, 1048581, 1073741869, 0, 1048582, 1073741869, 0, 1048584, 1073741869, 0, 1048585, 1073741869, 0, 1048587, 1073741869, 0, 1048588, 1073741869, 0, 1048590, 1073741869, 0, 1048591, 1073741869, 0, 1048593, 1073741869, 0, 1048594, 1073741869, 0, 1048596, 1073741869, 0, 1048597, 1073741869, 0, 1048599, 1073741869, 0, 1048600, 1073741869, 0, 1048602, 1073741869, 0, 1048603, 1073741869, 0, 1048605, 1073741869, 0, 1048606, 46, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/end = SubResource( 1 )
@@ -254,21 +298,101 @@ shape = SubResource( 3 )
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
 position = Vector2( 256, 36 )
-scale = Vector2( 1e-05, 1e-05 )
+scale = Vector2( 0.444454, 0.444454 )
 texture = ExtResource( 6 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-show_behind_parent = true
-position = Vector2( 240, 160 )
-scale = Vector2( 17.3242, 14.5 )
-texture = ExtResource( 7 )
+position = Vector2( 239.277, 108.815 )
+scale = Vector2( 0.180099, 0.228066 )
+texture = ExtResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -50.0
+volume_db = -2.38096
+bus = "SFX"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 7 )
+volume_db = -10.0
+pitch_scale = 0.8
+autoplay = true
+bus = "BGM"
+
+[node name="Dialog" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 20
+script = ExtResource( 13 )
+
+[node name="ColorRect" type="ColorRect" parent="Dialog"]
+anchor_top = 0.741
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -0.0700226
+margin_right = -20.0
+margin_bottom = -20.0
+theme = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Dialog/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialog/ColorRect/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Dialog/ColorRect/ColorRect/HBoxContainer"]
+margin_right = 426.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 6 )
+text = "Alien: This is probably the end of this place. I hope someone comes for me."
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dialog"]
+autoplay = "arrow"
+anims/arrow = SubResource( 7 )
+anims/text = SubResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Dialog"]
+position = Vector2( 445.984, 236.684 )
+texture = ExtResource( 12 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Dialog"]
+stream = ExtResource( 14 )
+bus = "SFX"
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Dialog/AnimationPlayer" to="Dialog" method="_on_AnimationPlayer_animation_finished"]
