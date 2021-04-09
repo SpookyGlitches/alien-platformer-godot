@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=20 format=2]
-=======
-[gd_scene load_steps=22 format=2]
->>>>>>> Stashed changes
 
 [ext_resource path="res://GUI/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://GUI/ThemeUI.theme" type="Theme" id=2]
@@ -18,7 +14,6 @@
 [ext_resource path="res://Audio/MenuBGM.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Tiles/TileStandsNew.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Audio/Enter.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Objects/Environment/pixels-1617958858866-2014.jpg" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -148,13 +143,4 @@ shape = SubResource( 5 )
 
 [node name="TileMap" parent="HBoxContainer" instance=ExtResource( 13 )]
 tile_data = PoolIntArray( 524297, 2, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 0, 0, 589833, 4, 0, 589846, 3, 0, 655369, 4, 0, 655382, 3, 0, 720905, 6, 0, 720918, 5, 0 )
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 234.777, 180.635 )
-scale = Vector2( 0.34268, 0.33684 )
-texture = ExtResource( 15 )
 [connection signal="finished" from="HBoxContainer/VBoxContainer/MenuOptions/Enter" to="HBoxContainer/VBoxContainer/MenuOptions" method="_on_Enter_finished"]

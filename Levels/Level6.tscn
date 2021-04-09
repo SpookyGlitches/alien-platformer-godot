@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Actors/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Environment/pixels-1617958858866-2014.jpg" type="Texture" id=3]
 [ext_resource path="res://Objects/Key/Key.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Turret/Turret.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Potion/Potion.tscn" type="PackedScene" id=7]
@@ -133,12 +132,3 @@ position = Vector2( 139.665, 216.958 )
 
 [node name="Monster2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 152.022, 121.495 )
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 476.697, 96.3016 )
-scale = Vector2( 0.513351, 0.513351 )
-texture = ExtResource( 3 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/TileStandsNew.tscn" type="PackedScene" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Objects/Stepper/Stepper.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Actors/Monster/Monster.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Turret/Turret.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Objects/Environment/pixels-1617958858866-2014.jpg" type="Texture" id=13]
 
 [node name="Level7" type="Node2D"]
 script = ExtResource( 4 )
@@ -131,13 +130,4 @@ wait_time = 4.0
 [node name="Turret3" parent="." instance=ExtResource( 12 )]
 position = Vector2( 198.508, 73.3982 )
 wait_time = 7.0
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 431.895, 66.742 )
-scale = Vector2( 0.55011, 0.55011 )
-texture = ExtResource( 13 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
