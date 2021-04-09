@@ -17,7 +17,7 @@ func _on_Player_die():
 
 func _on_Timer_timeout():
 	var bat = Bat.instance()
-	bat.position.x = player.position.x - 150
+	bat.position.x = player.position.x - 200
 	add_child(bat)
 	pass
 

@@ -67,10 +67,10 @@ func _on_Door_entered(body):
 			get_tree().change_scene("res://Levels/Level"+str(get_level_number()+1)+".tscn")			
 			print("Go inside")
 		else:
-			play_credits()
+			play_end_scene()
 
-func play_credits():
-	print("TODO")
+func play_end_scene():
+	get_tree().change_scene("res://Screens/End/End.tscn")
 
 func dialog(string):
 	print(string)
