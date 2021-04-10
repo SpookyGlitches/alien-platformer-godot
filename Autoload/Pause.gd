@@ -3,7 +3,7 @@ extends CanvasLayer
 var past = -1
 var options = ["Continue", "Restart", "Menu"]
 var choice = 0
-var bgm_helper = 0
+
 var is_shown = false
 
 
@@ -34,13 +34,12 @@ func _input(event):
 		play_sound("Enter")
 		tree.paused = false
 		_show(false)
+		Global.bgm_helper = 0
 		match options[choice]:
 			"Menu":
 				tree.change_scene("res://GUI/MainMenu.tscn")
-				bgm_helper = 0
 			"Restart":
 				tree.change_scene("res://Levels/"+tree.current_scene.get_name()+".tscn")		
-				bgm_helper = 0
 				
 func toggle_arrow(node,hide):
 	var sprite = get_node("Control/CenterContainer/VBoxContainer/"+node+"/Sprite")

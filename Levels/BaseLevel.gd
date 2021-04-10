@@ -40,7 +40,7 @@ func get_level_number():
 	return level_number 
 
 func fail():
-	Pause.bgm_helper = 0
+	Global.bgm_helper = 0
 	get_node("AudioStreamPlayer").stop()
 	var fail = Fail.instance()
 	fail.current_level = get_level_number()
@@ -62,7 +62,7 @@ func _on_Door_entered(body):
 		add_child(dialog)
 
 	else:
-		Pause.bgm_helper = get_node("AudioStreamPlayer").get_playback_position()
+		Global.bgm_helper = get_node("AudioStreamPlayer").get_playback_position()
 		if level_number != TOTAL_LEVELS:
 			get_tree().change_scene("res://Levels/Level"+str(get_level_number()+1)+".tscn")			
 			print("Go inside")
