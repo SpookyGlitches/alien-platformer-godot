@@ -85,7 +85,7 @@ func update_progress_bar(progress_bar,db):
 
 func resume_audio():
 	var audio = get_node("MenuBGM")
-	audio.seek(Pause.bgm_helper)
+	audio.seek(Global.bgm_helper)
 
 func _on_Enter_finished():
 	Global.bgm_helper = get_node("MenuBGM").get_playback_position()

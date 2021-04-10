@@ -41,21 +41,21 @@ func play_sound(input):
 	var aud = get_node(input)
 	aud.play()
 
-
 func resume_audio():
 	var audio = get_node("MenuBGM")
-	audio.seek(Global.bgm_helper)
+
+	audio.play(Global.bgm_helper)
 
 func _on_Enter_finished():
 	var lvl
 	if options[choice] == "Continue" || options[choice] == "NewGame":
+		Global.bgm_helper = 0
 		match options[choice]:
 			"Continue":
 				lvl = Global.player_data["current_level"]
 			"NewGame":
 				lvl = 1
-		Pause.bgm_helper = 0
 		init_game(lvl)
 	elif options[choice] == "Options":
-		Pause.bgm_helper = get_node("MenuBGM").get_playback_position()
+		Global.bgm_helper = get_node("MenuBGM").get_playback_position()
 		get_tree().change_scene("res://GUI/Options.tscn")	
