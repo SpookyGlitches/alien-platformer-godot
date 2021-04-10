@@ -16,12 +16,17 @@ signal die
 
 func _ready():
 	pass
+	#keyCount as Global
+	Global.Player = self
+	
+	
+# not applicable to level 2+
 	set_process(true)
 
 func _process(delta):
 	var LabelNode = get_parent().get_parent().get_node("Level1/CanvasLayer/Control/RichTextLabel")
-	LabelNode.text = str(score)
-	
+	LabelNode.text = str(keys)
+
 func _physics_process(_delta):
 	if !is_alive:
 		return
@@ -86,7 +91,14 @@ func die():
 		
 func collect_key():
 	keys += 1
-	score += 1
+
+#keyCount as Global
+func increasedScore():
+	keys += 1
+	score = score + 1
+	for node in Global.keyUI.get_children():
+		if node is Label:
+			node.set_text(String(score))
 
 	
 func get_keys():

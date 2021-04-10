@@ -4,7 +4,8 @@ var current_level
 var player_data = null
 var bgm_helper = 0
 #var lives = 3
-#var score = 0
+var Player
+var keyUI
 
 func _ready():
 	load_player_data()
