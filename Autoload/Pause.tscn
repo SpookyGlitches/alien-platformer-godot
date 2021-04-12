@@ -1,20 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://GUI/ThemeUI.theme" type="Theme" id=1]
-[ext_resource path="res://GUI/one_bit_transparent0983.png" type="Texture" id=2]
+[ext_resource path="res://GUI/MenuOption.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Autoload/Pause.gd" type="Script" id=3]
 [ext_resource path="res://Audio/Enter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Audio/Select.tscn" type="PackedScene" id=5]
 
 [node name="Control" type="CanvasLayer"]
 pause_mode = 2
-layer = 128
+layer = 100
 script = ExtResource( 3 )
 
 [node name="Control" type="Control" parent="."]
 pause_mode = 2
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
+margin_left = -480.0
+margin_bottom = 270.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -23,7 +24,7 @@ __meta__ = {
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0.682353 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,62 +33,70 @@ __meta__ = {
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 3.05176e-05
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
 pause_mode = 2
-margin_left = 204.0
+margin_left = 199.0
 margin_top = 97.0
-margin_right = 276.0
+margin_right = 280.0
 margin_bottom = 172.0
 custom_constants/separation = 15
+alignment = 1
 
-[node name="Continue" type="Label" parent="Control/CenterContainer/VBoxContainer"]
-pause_mode = 2
+[node name="ContinueH" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+margin_right = 81.0
+margin_bottom = 15.0
+alignment = 1
+
+[node name="Continue" parent="Control/CenterContainer/VBoxContainer/ContinueH" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_top = 0.0
+margin_right = 76.0
+margin_bottom = 15.0
+focus_neighbour_top = NodePath("../../MainMenuH/MainMenu")
+focus_neighbour_bottom = NodePath("../../RestartH/Restart")
+focus_mode = 2
+text = "Continue"
+
+[node name="RestartH" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+margin_top = 30.0
+margin_right = 81.0
+margin_bottom = 45.0
+alignment = 1
+
+[node name="Restart" parent="Control/CenterContainer/VBoxContainer/RestartH" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 9.0
+margin_top = 0.0
 margin_right = 72.0
 margin_bottom = 15.0
-theme = ExtResource( 1 )
-text = "Continue"
-align = 1
-
-[node name="Sprite" type="Sprite" parent="Control/CenterContainer/VBoxContainer/Continue"]
-pause_mode = 2
-visible = false
-position = Vector2( -7, 9 )
-texture = ExtResource( 2 )
-
-[node name="Restart" type="Label" parent="Control/CenterContainer/VBoxContainer"]
-pause_mode = 2
-margin_top = 30.0
-margin_right = 72.0
-margin_bottom = 45.0
-theme = ExtResource( 1 )
+focus_neighbour_top = NodePath("../../ContinueH/Continue")
+focus_neighbour_bottom = NodePath("../../MainMenuH/MainMenu")
+focus_mode = 2
 text = "Restart"
-align = 1
 
-[node name="Sprite" type="Sprite" parent="Control/CenterContainer/VBoxContainer/Restart"]
-pause_mode = 2
-visible = false
-position = Vector2( -3, 8.90079 )
-texture = ExtResource( 2 )
-
-[node name="Menu" type="Label" parent="Control/CenterContainer/VBoxContainer"]
-pause_mode = 2
+[node name="MainMenuH" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
 margin_top = 60.0
-margin_right = 72.0
+margin_right = 81.0
 margin_bottom = 75.0
-theme = ExtResource( 1 )
-text = "Menu"
-align = 1
+alignment = 1
 
-[node name="Sprite" type="Sprite" parent="Control/CenterContainer/VBoxContainer/Menu"]
-pause_mode = 2
-visible = false
-position = Vector2( 10.9578, 8.46089 )
-texture = ExtResource( 2 )
+[node name="MainMenu" parent="Control/CenterContainer/VBoxContainer/MainMenuH" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 0.0
+margin_right = 81.0
+margin_bottom = 15.0
+focus_neighbour_top = NodePath("../../RestartH/Restart")
+focus_neighbour_bottom = NodePath("../../ContinueH/Continue")
+focus_mode = 2
+text = "Main Menu"
 
 [node name="Select" parent="." instance=ExtResource( 5 )]
 

@@ -2,14 +2,14 @@
 
 [ext_resource path="res://GUI/ThemeUI.theme" type="Theme" id=1]
 [ext_resource path="res://GUI/one_bit_transparent0983.png" type="Texture" id=2]
-[ext_resource path="res://GUI/BGProgressBar.tres" type="StyleBox" id=3]
-[ext_resource path="res://GUI/FGProgressBar.tres" type="StyleBox" id=4]
-[ext_resource path="res://GUI/Options.gd" type="Script" id=5]
-[ext_resource path="res://Audio/MenuBGM.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Audio/Select.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Audio/Enter.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Audio/MenuBGM.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Audio/Enter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Audio/Select.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GUI/Settings.gd" type="Script" id=6]
+[ext_resource path="res://GUI/FGProgressBar.tres" type="StyleBox" id=7]
+[ext_resource path="res://GUI/BGProgressBar.tres" type="StyleBox" id=8]
 
-[node name="Options" type="MarginContainer"]
+[node name="Settings" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -19,7 +19,7 @@ margin_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 100.011 ],
 "_edit_use_anchors_": false,
@@ -40,6 +40,9 @@ custom_constants/separation = 20
 [node name="Master" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_right = 264.0
 margin_bottom = 15.0
+focus_neighbour_top = NodePath("../Back")
+focus_neighbour_bottom = NodePath("../BGM")
+focus_mode = 2
 size_flags_horizontal = 3
 custom_constants/separation = 20
 alignment = 2
@@ -59,8 +62,8 @@ margin_right = 264.0
 margin_bottom = 15.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_vertical = 3
-custom_styles/fg = ExtResource( 4 )
-custom_styles/bg = ExtResource( 3 )
+custom_styles/fg = ExtResource( 7 )
+custom_styles/bg = ExtResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 min_value = -50.0
 max_value = 0.0
@@ -78,6 +81,9 @@ centered = false
 margin_top = 35.0
 margin_right = 264.0
 margin_bottom = 50.0
+focus_neighbour_top = NodePath("../Master")
+focus_neighbour_bottom = NodePath("../SFX")
+focus_mode = 2
 custom_constants/separation = 20
 alignment = 2
 
@@ -94,8 +100,8 @@ margin_bottom = 15.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/fg = ExtResource( 4 )
-custom_styles/bg = ExtResource( 3 )
+custom_styles/fg = ExtResource( 7 )
+custom_styles/bg = ExtResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 min_value = -50.0
 max_value = 0.0
@@ -112,6 +118,9 @@ centered = false
 margin_top = 70.0
 margin_right = 264.0
 margin_bottom = 85.0
+focus_neighbour_top = NodePath("../BGM")
+focus_neighbour_bottom = NodePath("../Back")
+focus_mode = 2
 custom_constants/separation = 20
 alignment = 2
 
@@ -129,8 +138,8 @@ margin_right = 264.0
 margin_bottom = 15.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_vertical = 3
-custom_styles/fg = ExtResource( 4 )
-custom_styles/bg = ExtResource( 3 )
+custom_styles/fg = ExtResource( 7 )
+custom_styles/bg = ExtResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 min_value = -50.0
 max_value = 0.0
@@ -147,6 +156,9 @@ centered = false
 margin_top = 105.0
 margin_right = 264.0
 margin_bottom = 120.0
+focus_neighbour_top = NodePath("../SFX")
+focus_neighbour_bottom = NodePath("../Master")
+focus_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Back"]
@@ -163,9 +175,9 @@ position = Vector2( 221.306, 9.26044 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="MenuBGM" parent="." instance=ExtResource( 6 )]
+[node name="MenuBGM" parent="." instance=ExtResource( 3 )]
 
-[node name="Enter" parent="." instance=ExtResource( 8 )]
+[node name="Enter" parent="." instance=ExtResource( 4 )]
 
-[node name="Select" parent="." instance=ExtResource( 7 )]
+[node name="Select" parent="." instance=ExtResource( 5 )]
 [connection signal="finished" from="Enter" to="." method="_on_Enter_finished"]
