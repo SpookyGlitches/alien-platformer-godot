@@ -6,7 +6,7 @@
 [ext_resource path="res://Actors/Player/one_bit_transparent0451.png" type="Texture" id=4]
 [ext_resource path="res://Actors/Player/one_bit_transparent0450.png" type="Texture" id=5]
 [ext_resource path="res://Screens/End/one_bit_transparent0973.png" type="Texture" id=6]
-[ext_resource path="res://Screens/End/space.wav" type="AudioStream" id=7]
+[ext_resource path="res://Screens/End/space.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Screens/End/454595__breviceps__cartoon-flying-ufo.wav" type="AudioStream" id=8]
 [ext_resource path="res://Screens/End/234258__petr2010__ufo-floating.wav" type="AudioStream" id=9]
 [ext_resource path="res://Screens/End/spotlight.png" type="Texture" id=10]
@@ -276,7 +276,6 @@ anims/end = SubResource( 1 )
 anims/walk-to-end = SubResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-pause_mode = 2
 position = Vector2( 157.2, 168 )
 __meta__ = {
 "_edit_group_": true
@@ -285,6 +284,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
 frames = SubResource( 3 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]

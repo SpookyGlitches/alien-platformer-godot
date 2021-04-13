@@ -11,6 +11,7 @@ func _input(event):
 		play_sound("Select")
 
 func init_game(lvl):
+	Global.bgm_helper = 0
 	var err = get_tree().change_scene("res://Levels/Level"+str(lvl)+".tscn")
 	if err != OK:
 		get_tree().change_scene("res://Levels/Level1.tscn")

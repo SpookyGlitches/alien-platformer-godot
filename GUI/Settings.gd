@@ -9,17 +9,8 @@ var previous_focus
 var buses_index = {}
 
 func _ready():
-#	toggle_arrow(options[past],false)	
-#	initialize()
 	initialize()
 	get_node("CenterContainer/VBoxContainer/Master").grab_focus()
-##	get_node("CenterContainer/VBoxContainer/Master").connect("focus_entered",self,"_on_Option_focused")
-#	get_node("CenterContainer/VBoxContainer/BGM").connect("focus_entered",self,"_on_Option_focused")
-#	get_node("CenterContainer/VBoxContainer/SFX").connect("focus_entered",self,"_on_Option_focused")
-#	get_node("CenterContainer/VBoxContainer/Back").connect("focus_entered",self,"_on_Option_focused")		
-#	var audio_settings = Pause.get_audio_settings()
-#	if audio_settings:
-#
 	resume_audio()
 	pass
 	
@@ -42,19 +33,7 @@ func initialize():
 		if (x != "Back"):
 			buses_index[x] = AudioServer.get_bus_index(x)
 			update_progress_bar(hbox_node.get_node("ProgressBar"), Global.player_data[x])
-#	var brr = "CenterContainer/VBoxContainer/"
-#	var hbox_node
-#
-#	for x in options:
-#		buses_index[x] = AudioServer.get_bus_index(x)
-#		hbox_node = get_node(brr+x)
-#		update_progress_bar(hbox_node.get_node("ProgressBar"), Global.player_data[x])
-#		adjust_sprite(hbox_node,hbox_node.get_node("Label").get_global_position())
-#
-#	options.append("Back")
-#	hbox_node = get_node(brr+"Back")
-#	adjust_sprite(hbox_node,hbox_node.get_node("Label").get_global_position())
-##
+			
 func adjust_sprite(hbox_node,label_position):
 	var sprite = hbox_node.get_node("Sprite")
 	sprite.set_global_position(Vector2(label_position.x - 15.0, label_position.y))
@@ -74,6 +53,7 @@ func play_sound(input):
 	get_node(input).play()
 
 func change_volume(node,db):
+	get_node("Select").play()
 	var progress_bar = node.get_node("ProgressBar")
 	var label = node.get_name()
 	var total_db = AudioServer.get_bus_volume_db(buses_index[label]) + db
