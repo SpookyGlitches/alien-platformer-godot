@@ -34,4 +34,6 @@ func _on_Enter_finished():
 		"Settings":
 			Global.bgm_helper = get_node("MenuBGM").get_playback_position()
 			get_tree().change_scene("res://GUI/Settings.tscn")		
-
+		"Records":
+			Global.bgm_helper = get_node("MenuBGM").get_playback_position()
+			get_tree().change_scene("res://GUI/Records.tscn")

@@ -9,7 +9,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("pause"):
 		var tree = get_tree()		
-		if tree.current_scene.get_name() == "MainMenu" || tree.current_scene.get_name() == "Options" || tree.paused:
+		if tree.current_scene.get_name() == "MainMenu" || tree.current_scene.get_name() == "Settings" || tree.current_scene.get_name() == "Records" || tree.paused:
 			return
 		else:
 			tree.paused = true

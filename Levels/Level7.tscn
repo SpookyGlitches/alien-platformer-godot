@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/TileStandsNew.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Actors/Monster/Monster.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Spike/Spike.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Environment/ParallaxBackground.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Stopwatch/Stopwatch.tscn" type="PackedScene" id=14]
 
 [node name="Level7" type="Node2D"]
 script = ExtResource( 4 )
@@ -126,6 +127,8 @@ position = Vector2( 264.083, 120.961 )
 [node name="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 position = Vector2( 476.607, 97.1457 )
 scale = Vector2( 0.509099, 0.491654 )
+
+[node name="Stopwatch" parent="." instance=ExtResource( 14 )]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="ParallaxBackground"]
