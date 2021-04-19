@@ -22,7 +22,6 @@ func active():
 	set_physics_process(true)
 	anim_sprite.play("active")
 
-
 func _on_Mob_body_entered(body):
 	if body.get_name() == "Player":
 		body.die()

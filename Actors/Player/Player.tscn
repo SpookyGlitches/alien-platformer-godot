@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Actors/Player/one_bit_transparent0451.png" type="Texture" id=1]
 [ext_resource path="res://Actors/Player/one_bit_transparent0453.png" type="Texture" id=2]
@@ -8,7 +8,9 @@
 [ext_resource path="res://Actors/Player/one_bit_transparent0449.png" type="Texture" id=6]
 [ext_resource path="res://Actors/Player/jump_jekkech.wav" type="AudioStream" id=7]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 6 ) ],
 "loop": true,
@@ -26,7 +28,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6, 6 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -36,16 +38,30 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = -4493.44
+margin_top = -16099.3
+margin_right = 5467.56
+margin_bottom = -10953.3
+theme = SubResource( 1 )
+text = "Score: 0 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 0.8, 0.8 )
 limit_left = 0
 limit_top = 0
 limit_bottom = 270
@@ -62,21 +78,3 @@ editor_draw_drag_margin = true
 stream = ExtResource( 7 )
 volume_db = -5.0
 bus = "SFX"
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
-margin_left = 475.396
-margin_top = -12845.0
-margin_right = 883.396
-margin_bottom = -12409.0
-__meta__ = {
-"_edit_use_anchors_": false
-}

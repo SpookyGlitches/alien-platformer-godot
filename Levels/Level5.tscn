@@ -109,6 +109,6 @@ wait_time = 1.5
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 399.216, 80.9086 )
+position = Vector2( 399.216, 82.0311 )
 scale = Vector2( 0.486691, 0.486691 )
 texture = ExtResource( 12 )

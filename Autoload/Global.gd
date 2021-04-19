@@ -3,20 +3,15 @@ extends Node2D
 var current_level
 var player_data = null
 var bgm_helper = 0
-#var lives = 3
 var Player
-var keyUI
-
+var score = 0 setget set_score 
+var elapsed = 0.0
+onready var start_time = OS.get_ticks_msec()
 func _ready():
 	load_player_data()
 	apply_audio_settings()
-#	set_game_over()
-	pass
-#	set_process(true)
 
-#func _process(delta):
-#	var LabelNode = 
-#	LabelNode.text = str(score)
+	pass
 
 func save():
 	var save_game = File.new()
@@ -54,6 +49,17 @@ func load_player_data():
 #   lives -= 1
 #   if lives <= 0:
 #	 game_over()
+
+
+func _process(delta):
+	elapsed += delta
+	if elapsed >= 30.0:
+		elapsed = 0.0
+	get_node("/root/Global/HUD/timestamp").set_text("Timestamp:" +str(elapsed))
+#	print("Elapsed time: ", OS.get_timec() - start_time)
+func set_score(value):
+	score = value
+	get_node("/root/Global/HUD/score").set_text("KEYS: "+str(score))
 
 func apply_audio_settings():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),player_data["Master"])

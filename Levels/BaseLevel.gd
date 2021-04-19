@@ -56,7 +56,7 @@ func _on_Body_fall(body):
 func _on_Door_entered(body):
 	if body.get_name() != "Player":
 		return
-	if body.get_keys() < req_keys:
+	if body.get_keys() > req_keys:
 		var dialog = get_dialog_instance()
 		dialog.set_message("Alien: It seems that I still lack keys for this door.")
 		add_child(dialog)
