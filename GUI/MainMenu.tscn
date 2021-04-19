@@ -1,20 +1,17 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://GUI/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://GUI/ThemeUI.theme" type="Theme" id=2]
 [ext_resource path="res://Actors/Player/one_bit_transparent0449.png" type="Texture" id=3]
 [ext_resource path="res://Actors/Player/one_bit_transparent0450.png" type="Texture" id=4]
 [ext_resource path="res://Actors/Player/one_bit_transparent0451.png" type="Texture" id=5]
 [ext_resource path="res://GUI/LoopPlayerWalk.gd" type="Script" id=6]
 [ext_resource path="res://Audio/Select.tscn" type="PackedScene" id=7]
 [ext_resource path="res://GUI/MenuOptions.gd" type="Script" id=8]
-[ext_resource path="res://GUI/NewGame.tscn" type="PackedScene" id=9]
-[ext_resource path="res://GUI/one_bit_transparent0983.png" type="Texture" id=10]
-[ext_resource path="res://GUI/Continue.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Audio/MenuBGM.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Tiles/TileStandsNew.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Audio/Enter.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Objects/Environment/pixels-1617958858866-2014.jpg" type="Texture" id=15]
+[ext_resource path="res://Objects/Environment/ParallaxBackground.tscn" type="PackedScene" id=15]
+[ext_resource path="res://GUI/MenuOption.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -24,12 +21,7 @@ font_data = ExtResource( 1 )
 size = 14
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 10
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
-
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
@@ -37,10 +29,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6.53122, 6.34676 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 
 [node name="MainMenu" type="MarginContainer"]
 anchor_right = 1.0
@@ -71,7 +63,7 @@ text = "The Lost Alien"
 [node name="MenuOptions" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
 margin_top = 40.0
 margin_right = 72.0
-margin_bottom = 160.0
+margin_bottom = 173.0
 rect_pivot_offset = Vector2( 100.499, 274.556 )
 size_flags_horizontal = 2
 size_flags_vertical = 3
@@ -79,57 +71,52 @@ custom_constants/separation = 12
 alignment = 1
 script = ExtResource( 8 )
 
-[node name="Continue" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 11 )]
-margin_left = 0.0
-margin_top = 25.0
+[node name="Continue" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 16 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 32.0
 margin_right = 72.0
-margin_bottom = 40.0
-focus_neighbour_top = NodePath("../Exit")
-focus_previous = NodePath("")
+margin_bottom = 47.0
+focus_neighbour_top = NodePath("../Settings")
+focus_neighbour_bottom = NodePath("../NewGame")
+focus_mode = 2
+text = "Continue"
 
-[node name="NewGame" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 9 )]
-margin_top = 52.0
-margin_bottom = 67.0
-focus_next = NodePath("")
-focus_previous = NodePath("")
-
-[node name="Options" type="Label" parent="HBoxContainer/VBoxContainer/MenuOptions"]
-margin_top = 79.0
+[node name="NewGame" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 16 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 59.0
 margin_right = 72.0
-margin_bottom = 94.0
+margin_bottom = 74.0
+focus_neighbour_top = NodePath("../Continue")
+focus_neighbour_bottom = NodePath("../Settings")
+focus_mode = 2
+text = "New Game"
+
+[node name="Settings" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 16 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 86.0
+margin_right = 72.0
+margin_bottom = 101.0
 focus_neighbour_top = NodePath("../NewGame")
-focus_next = NodePath("../Continue")
-focus_previous = NodePath("../NewGame")
-theme = ExtResource( 2 )
+focus_neighbour_bottom = NodePath("../Continue")
+focus_mode = 2
 text = "Settings"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="HBoxContainer/VBoxContainer/MenuOptions/Options"]
-visible = false
-position = Vector2( -6.90446, 7.23855 )
-texture = ExtResource( 10 )
 
 [node name="MenuBGM" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 12 )]
+autoplay = false
 
 [node name="Select" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 7 )]
 
 [node name="Enter" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 14 )]
 
 [node name="Version" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 164.0
-margin_right = 322.0
-margin_bottom = 177.0
-custom_fonts/font = SubResource( 2 )
-text = "v1.0.0"
-
-[node name="Developer" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 181.0
+margin_top = 177.0
 margin_right = 322.0
 margin_bottom = 190.0
-custom_fonts/font = SubResource( 3 )
-text = "SpookyGlitches"
+custom_fonts/font = SubResource( 2 )
+text = "v1.0.0"
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="HBoxContainer"]
 position = Vector2( -14.9306, -32.0276 )
@@ -140,36 +127,29 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="HBoxContainer/KinematicBody2D"]
 position = Vector2( 184.235, 152.006 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/KinematicBody2D"]
 position = Vector2( 184.197, 153.654 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="HBoxContainer"]
 position = Vector2( 363.459, 128.583 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/StaticBody2D"]
 position = Vector2( 16.5178, -1.41582 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="HBoxContainer"]
 position = Vector2( 151.074, 125.961 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/StaticBody2D2"]
 position = Vector2( -15.8099, 0.235977 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="TileMap" parent="HBoxContainer" instance=ExtResource( 13 )]
 tile_data = PoolIntArray( 524297, 2, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 0, 0, 589833, 4, 0, 589846, 3, 0, 655369, 4, 0, 655382, 3, 0, 720905, 6, 0, 720918, 5, 0 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 343.644, 208.919 )
-scale = Vector2( 0.473232, 0.465167 )
-texture = ExtResource( 15 )
+[node name="ParallaxBackground" parent="." instance=ExtResource( 15 )]
 [connection signal="finished" from="HBoxContainer/VBoxContainer/MenuOptions/Enter" to="HBoxContainer/VBoxContainer/MenuOptions" method="_on_Enter_finished"]

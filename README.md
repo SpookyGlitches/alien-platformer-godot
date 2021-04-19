@@ -1,11 +1,11 @@
 ## Naming Convention 
 
 For the files except downloaded files, use ```PascalCase```  
-Variables inside the script, use ```snake_case```  
-If it's an override of a function or a signal, add _ of the beginning of the function.   
+Functions and variables use ```snake_case```  
 Signals - Godot recommends past tense of the function like ```_on_Area2D_body_entered```
 
 ## Game Flow
+
 * Level 1 - Fall
 * Level 2 - Fall, Spikes
 * Level 3 - Fall, Spikes, Turrets
@@ -13,7 +13,6 @@ Signals - Godot recommends past tense of the function like ```_on_Area2D_body_en
 * Level 5 - Fall, Spikes, Turrets, Enemies, Potions
 * Level 6 - Fall, Spikes, Turrets, Enemies, Potions, Moving Platforms/Trap Platforms
 * Level 7 - Fall, Spikes, Turrets, Enemies, Potions, Moving Platforms/Trap Platforms, Bats
-* Final - Boss Level
 * End Scene - Something2 UFO
 
 

@@ -5,7 +5,6 @@
 [ext_resource path="res://Actors/Bat/Bat.gd" type="Script" id=3]
 [ext_resource path="res://Actors/Bat/flap.wav" type="AudioStream" id=4]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.90052
 

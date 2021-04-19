@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://GUI/MenuOption.gd" type="Script" id=1]
+[ext_resource path="res://GUI/one_bit_transparent0983.png" type="Texture" id=2]
+[ext_resource path="res://GUI/ThemeUI.theme" type="Theme" id=3]
+
+[node name="Label" type="Label"]
+anchor_right = 0.083
+anchor_bottom = 0.052
+margin_top = -0.187288
+margin_right = 0.159996
+margin_bottom = -0.227288
+theme = ExtResource( 3 )
+text = "hey"
+align = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.187288, -0.187288 )
+texture = ExtResource( 2 )
+centered = false
+[connection signal="focus_entered" from="." to="." method="_on_Label_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_Label_focus_exited"]

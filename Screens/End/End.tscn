@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tiles/TileStandsNew.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Actors/Player/one_bit_transparent0449.png" type="Texture" id=2]
@@ -6,14 +6,11 @@
 [ext_resource path="res://Actors/Player/one_bit_transparent0451.png" type="Texture" id=4]
 [ext_resource path="res://Actors/Player/one_bit_transparent0450.png" type="Texture" id=5]
 [ext_resource path="res://Screens/End/one_bit_transparent0973.png" type="Texture" id=6]
-[ext_resource path="res://Screens/End/space.wav" type="AudioStream" id=7]
+[ext_resource path="res://Screens/End/space.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Screens/End/454595__breviceps__cartoon-flying-ufo.wav" type="AudioStream" id=8]
 [ext_resource path="res://Screens/End/234258__petr2010__ufo-floating.wav" type="AudioStream" id=9]
 [ext_resource path="res://Screens/End/spotlight.png" type="Texture" id=10]
-[ext_resource path="res://GUI/ThemeUI.theme" type="Theme" id=11]
-[ext_resource path="res://GUI/one_bit_transparent0984.png" type="Texture" id=12]
-[ext_resource path="res://GUI/Dialog.gd" type="Script" id=13]
-[ext_resource path="res://Audio/text.wav" type="AudioStream" id=14]
+[ext_resource path="res://Objects/Environment/ParallaxBackground.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "end"
@@ -28,7 +25,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 4, 8.5, 10 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 26, 168 ), Vector2( 240, 168 ), Vector2( 240, 168 ), Vector2( 240, 48 ) ]
+"values": [ Vector2( 56, 168 ), Vector2( 240, 168 ), Vector2( 240, 168 ), Vector2( 240, 48 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("KinematicBody2D/Sprite:animation")
@@ -208,8 +205,48 @@ tracks/15/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/16/type = "value"
+tracks/16/path = NodePath("KinematicBody2D/Sprite:animation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("KinematicBody2D/Sprite:playing")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="Animation" id=2]
+resource_name = "walk-to-end"
+length = 1.75
+tracks/0/type = "value"
+tracks/0/path = NodePath("KinematicBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -6, 168 ), Vector2( 56, 168 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 2 ) ],
 "loop": true,
@@ -222,51 +259,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6, 6 )
-
-[sub_resource type="DynamicFontData" id=4]
-font_path = "res://GUI/VCR_OSD_MONO_1.001.ttf"
-
-[sub_resource type="DynamicFont" id=5]
-size = 12
-font_data = SubResource( 4 )
-
-[sub_resource type="Theme" id=6]
-default_font = SubResource( 5 )
-
-[sub_resource type="Animation" id=7]
-resource_name = "arrow"
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( 445.984, 236.684 ), Vector2( 445.984, 239 ), Vector2( 445.984, 236 ) ]
-}
-
-[sub_resource type="Animation" id=8]
-length = 3.05
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("ColorRect/ColorRect/HBoxContainer/Label:percent_visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 3.05 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.22951 ]
-}
 
 [node name="End" type="Node2D"]
 script = ExtResource( 3 )
@@ -279,31 +273,33 @@ tile_data = PoolIntArray( 65535, 46, 0, 0, 1073741869, 0, 1, 1073741869, 0, 2, 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/end = SubResource( 1 )
+anims/walk-to-end = SubResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( 26, 168 )
+position = Vector2( 157.2, 168 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( 0, 2 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
-position = Vector2( 256, 36 )
-scale = Vector2( 0.444454, 0.444454 )
+position = Vector2( 244.645, 10.4516 )
+scale = Vector2( 4, 4 )
 texture = ExtResource( 6 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.192513 )
 position = Vector2( 239.277, 108.815 )
 scale = Vector2( 0.180099, 0.228066 )
 texture = ExtResource( 10 )
@@ -313,7 +309,7 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -2.38096
+volume_db = -50.0
 bus = "SFX"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
@@ -328,71 +324,7 @@ pitch_scale = 0.8
 autoplay = true
 bus = "BGM"
 
-[node name="Dialog" type="CanvasLayer" parent="."]
-pause_mode = 2
-layer = 20
-script = ExtResource( 13 )
-
-[node name="ColorRect" type="ColorRect" parent="Dialog"]
-anchor_top = 0.741
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = -0.0700226
-margin_right = -20.0
-margin_bottom = -20.0
-theme = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="Dialog/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 2.0
-margin_top = 2.0
-margin_right = -2.0
-margin_bottom = -2.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Dialog/ColorRect/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 5.0
-margin_right = -5.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Dialog/ColorRect/ColorRect/HBoxContainer"]
-margin_right = 426.0
-margin_bottom = 36.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = SubResource( 6 )
-text = "Alien: This is probably the end of this place. I hope someone comes for me."
-autowrap = true
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Dialog"]
-autoplay = "arrow"
-anims/arrow = SubResource( 7 )
-anims/text = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Dialog"]
-position = Vector2( 445.984, 236.684 )
-texture = ExtResource( 12 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Dialog"]
-stream = ExtResource( 14 )
-bus = "SFX"
+[node name="ParallaxBackground" parent="." instance=ExtResource( 15 )]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="animation_finished" from="Dialog/AnimationPlayer" to="Dialog" method="_on_AnimationPlayer_animation_finished"]
+
+[editable path="ParallaxBackground"]
