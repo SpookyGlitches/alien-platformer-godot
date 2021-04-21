@@ -74,9 +74,9 @@ script = ExtResource( 8 )
 [node name="Continue" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 16 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 32.0
+margin_top = 18.0
 margin_right = 72.0
-margin_bottom = 47.0
+margin_bottom = 33.0
 focus_neighbour_top = NodePath("../Settings")
 focus_neighbour_bottom = NodePath("../NewGame")
 focus_mode = 2
@@ -85,24 +85,37 @@ text = "Continue"
 [node name="NewGame" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 16 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 59.0
+margin_top = 45.0
 margin_right = 72.0
-margin_bottom = 74.0
+margin_bottom = 60.0
 focus_neighbour_top = NodePath("../Continue")
-focus_neighbour_bottom = NodePath("../Settings")
+focus_neighbour_bottom = NodePath("../Records")
 focus_mode = 2
 text = "New Game"
+
+[node name="Records" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 16 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 72.0
+margin_bottom = 87.0
+focus_neighbour_top = NodePath("../NewGame")
+focus_neighbour_bottom = NodePath("../Settings")
+focus_mode = 2
+text = "Records"
+align = 0
 
 [node name="Settings" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 16 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 86.0
+margin_top = 99.0
 margin_right = 72.0
-margin_bottom = 101.0
-focus_neighbour_top = NodePath("../NewGame")
+margin_bottom = 114.0
+focus_neighbour_top = NodePath("../Records")
 focus_neighbour_bottom = NodePath("../Continue")
 focus_mode = 2
 text = "Settings"
+align = 0
 
 [node name="MenuBGM" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 12 )]
 autoplay = false
