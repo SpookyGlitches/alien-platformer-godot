@@ -12,7 +12,15 @@
 [ext_resource path="res://Objects/Stepper/Stepper.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Actors/Monster/Monster.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Spike/Spike.tscn" type="PackedScene" id=12]
+<<<<<<< Updated upstream
 [ext_resource path="res://Objects/Environment/ParallaxBackground.tscn" type="PackedScene" id=13]
+=======
+[ext_resource path="res://Objects/Environment/GameEnvironment.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Stopwatch/Stopwatch.tscn" type="PackedScene" id=14]
+>>>>>>> Stashed changes
+
+
+
 
 [node name="Level7" type="Node2D"]
 script = ExtResource( 4 )
