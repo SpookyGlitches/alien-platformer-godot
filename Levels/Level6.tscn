@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Actors/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Environment/OuterSpace.jpg" type="Texture" id=3]
+[ext_resource path="res://Objects/Environment/pixels-1617958858866-2014.jpg" type="Texture" id=3]
 [ext_resource path="res://Objects/Key/Key.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Turret/Turret.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Potion/Potion.tscn" type="PackedScene" id=7]

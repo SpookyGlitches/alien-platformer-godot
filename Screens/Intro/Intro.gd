@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+
 func _ready():
 	get_tree().set_pause(true)
 	get_node("AnimationPlayer").play("IdkAnymore")

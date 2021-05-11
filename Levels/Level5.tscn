@@ -11,12 +11,7 @@
 [ext_resource path="res://Actors/Monster/Monster.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Spike/Spike.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Turret/Turret.tscn" type="PackedScene" id=11]
-<<<<<<< Updated upstream
 [ext_resource path="res://Objects/Environment/pixels-1617958858866-2014.jpg" type="Texture" id=12]
-=======
-[ext_resource path="res://Objects/Environment/OuterSpace.jpg" type="Texture" id=12]
-[ext_resource path="res://Objects/Stopwatch/Stopwatch.tscn" type="PackedScene" id=13]
->>>>>>> Stashed changes
 
 [node name="Level5" type="Node2D"]
 script = ExtResource( 1 )

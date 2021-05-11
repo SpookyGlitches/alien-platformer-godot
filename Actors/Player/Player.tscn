@@ -12,11 +12,6 @@
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "idle",
@@ -25,6 +20,11 @@ animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "jump",
 "speed": 5.0
 } ]
 
@@ -61,11 +61,7 @@ shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-<<<<<<< Updated upstream
 zoom = Vector2( 0.8, 0.8 )
-=======
-zoom = Vector2( 0.9, 0.9 )
->>>>>>> Stashed changes
 limit_left = 0
 limit_top = 0
 limit_bottom = 270

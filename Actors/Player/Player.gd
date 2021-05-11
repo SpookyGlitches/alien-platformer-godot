@@ -48,8 +48,11 @@ func _physics_process(_delta):
 		jumping = true
 		play_animation("jump")
 		change_velocity('y',jump_power)
-	change_velocity('y',GRAVITY)
+		
+	change_velocity('y',GRAVITY) ## Apply gravity
+	
 	velocity = move_and_slide(velocity,FLOOR)
+
 	pass
 
 func change_velocity(axis,change):
@@ -60,6 +63,7 @@ func change_velocity(axis,change):
 		if jumping && is_on_floor():
 			jumping = false
 
+	
 func play_animation(movement):
 	var anim_sprite = get_node("AnimatedSprite")
 	if movement == "walk_west":
@@ -80,14 +84,12 @@ func get_name():
 func die():
 	emit_signal("die")
 	queue_free()
+
 		
 func collect_key():
 	keys += 1
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 func get_keys():
 	return keys
 
@@ -95,9 +97,14 @@ func set_position(pos):
 	position.x = pos.x
 	position.y = pos.y
 
+
 func play_sound():
 	get_node("AudioStreamPlayer").play()
-
+#	var asset = "res://Audio/jump_jekkech.wav"
+#	var sfx = load(asset)
+#	var aud = get_node("AudioStreamPlayer") 
+#	aud.stream = sfx
+#	aud.play()
 
 func set_camera(limit_right):
 	get_node("Camera2D").limit_right = limit_right

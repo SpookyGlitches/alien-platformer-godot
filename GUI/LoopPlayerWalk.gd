@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+
+
 var walk_speed = 1
 var velocity = Vector2.ZERO
 var collision

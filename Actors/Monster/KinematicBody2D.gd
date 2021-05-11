@@ -1,5 +1,9 @@
 extends Area2D
 
+
+#var walk_speed = 1
+#var velocity = Vector2.ZERO
+#var collision
 onready var anim_sprite = get_node("AnimatedSprite")
 var reverse = 1
 
@@ -17,17 +21,13 @@ func idle():
 func active():
 	set_physics_process(true)
 	anim_sprite.play("active")
-<<<<<<< Updated upstream
 
-=======
-	
->>>>>>> Stashed changes
 func _on_Mob_body_entered(body):
 	if body.get_name() == "Player":
 		body.die()
 	else:
 		reverse *= -1
-		
+
 func _on_Timer_timeout():
 	idle()
 

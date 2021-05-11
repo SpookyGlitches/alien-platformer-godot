@@ -3,17 +3,10 @@ extends Node2D
 var current_level
 var player_data = null
 var bgm_helper = 0
-<<<<<<< Updated upstream
 var Player
 var score = 0 setget set_score 
 var elapsed = 0.0
 onready var start_time = OS.get_ticks_msec()
-=======
-var records = {}
-var deaths = 0
-var user_path = "user://player_idk.save"
-
->>>>>>> Stashed changes
 func _ready():
 	load_player_data()
 	apply_audio_settings()
