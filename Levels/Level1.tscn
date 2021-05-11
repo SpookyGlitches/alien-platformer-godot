@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Objects/Environment/pixels-1617958858866-2014.jpg" type="Texture" id=1]
+[ext_resource path="res://Objects/Environment/OuterSpace.jpg" type="Texture" id=1]
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=2]
 [ext_resource path="res://Audio/LevelBGM.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Key/Key.tscn" type="PackedScene" id=5]

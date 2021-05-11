@@ -3,12 +3,15 @@ extends "BaseLevel.gd"
 export(int) var speed: int = 1000
 export(float) var rotation_speed: float = 0.3
 
+<<<<<<< Updated upstream
 var direction = Vector2(0,1)
 
 #onready var parallax = $ParallaxBacground
 func _ready():
 	initialize(1,1,672)
 
+=======
+>>>>>>> Stashed changes
 func _on_Area2D_body_entered(body):
 	if body.get_name() == "Player":
 		var dialog = get_dialog_instance()

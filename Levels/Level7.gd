@@ -1,7 +1,5 @@
 extends "BaseLevel.gd"
-
 onready var Bat = preload("res://Actors/Bat/Bat.tscn")
-
 
 func _ready():
 	initialize(3,7,960)
@@ -9,7 +7,6 @@ func _ready():
 	player.connect("die",self,"_on_Player_die")
 	make_keys_invisible(true)
 	pass
-
 
 func _on_Player_die():
 	get_node("Timer").stop()

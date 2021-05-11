@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://GUI/MenuOption.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GUI/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GUI/ScrollBar.tres" type="Theme" id=3]
+[ext_resource path="res://Objects/Environment/GameEnvironment.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Audio/MenuBGM.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GUI/Records.gd" type="Script" id=6]
+[ext_resource path="res://Audio/Select.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Audio/Enter.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="Records" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.35495
+margin_right = -1.35495
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 25.0
+margin_right = -25.0
+margin_bottom = -25.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 430.0
+margin_bottom = 220.0
+size_flags_vertical = 3
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 430.0
+margin_bottom = 18.0
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 113.0
+margin_right = 317.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+text = "Your Best Records"
+align = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 33.0
+margin_right = 430.0
+margin_bottom = 220.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 115.0
+margin_right = 315.0
+margin_bottom = 187.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_right = 200.0
+margin_bottom = 162.0
+focus_next = NodePath("../Back")
+focus_previous = NodePath(".")
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+custom_styles/bg = SubResource( 2 )
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer"]
+margin_right = 200.0
+size_flags_horizontal = 3
+custom_constants/separation = 15
+alignment = 1
+
+[node name="Back" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 164.0
+margin_top = 172.0
+margin_right = 200.0
+margin_bottom = 187.0
+focus_next = NodePath(".")
+focus_previous = NodePath("../ScrollContainer")
+focus_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Back"
+align = 2
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
+
+[node name="MenuBGM" parent="." instance=ExtResource( 5 )]
+
+[node name="Select" parent="." instance=ExtResource( 7 )]
+
+[node name="Enter" parent="." instance=ExtResource( 8 )]
+[connection signal="finished" from="Enter" to="." method="_on_Enter_finished"]

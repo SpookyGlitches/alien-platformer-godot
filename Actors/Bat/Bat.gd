@@ -1,10 +1,9 @@
 extends Area2D
 
-
 var player
 var collision
 var speed
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	player = get_parent().get_node("Player") 
 	var rand_generate = RandomNumberGenerator.new()

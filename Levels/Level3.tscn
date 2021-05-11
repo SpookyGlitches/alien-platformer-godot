@@ -9,8 +9,13 @@
 [ext_resource path="res://Audio/LevelBGM.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Spike/Spike.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Key/Key.tscn" type="PackedScene" id=9]
+<<<<<<< Updated upstream
 [ext_resource path="res://Objects/Environment/White.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Environment/pixels-1617958858866-2014.jpg" type="Texture" id=11]
+=======
+[ext_resource path="res://Objects/Environment/OuterSpace.jpg" type="Texture" id=11]
+[ext_resource path="res://Objects/Stopwatch/Stopwatch.tscn" type="PackedScene" id=12]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25, 20 )
@@ -112,18 +117,21 @@ texture = ExtResource( 11 )
 visible = false
 position = Vector2( 111.339, 15.4597 )
 scale = Vector2( 0.754113, 0.754112 )
-texture = ExtResource( 10 )
 
 [node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 visible = false
 position = Vector2( 350.1, 15.1143 )
 scale = Vector2( 0.754113, 0.754112 )
-texture = ExtResource( 10 )
 
 [node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 visible = false
 position = Vector2( 629.121, 35.5402 )
 scale = Vector2( 1.50944, 1.50944 )
+<<<<<<< Updated upstream
 texture = ExtResource( 10 )
+=======
+
+[node name="Stopwatch" parent="." instance=ExtResource( 12 )]
+>>>>>>> Stashed changes
 [connection signal="body_entered" from="Spike" to="." method="_on_Spike_body_entered"]
 [connection signal="body_entered" from="ForDialog" to="." method="_on_ForDialog_body_entered"]
