@@ -14,7 +14,6 @@ func _ready():
 func save():
 	var save_game = File.new()
 	save_game.open(user_path, File.WRITE)
-	print(player_data)
 	player_data["Master"] = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	player_data["SFX"] = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))
 	player_data["BGM"] = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("BGM"))
@@ -34,7 +33,6 @@ func load_player_data():
 			"BGM": 0,
 			"records": initialize_records()
 		}
-		print("here")
 		return
 	if file_data.open(user_path, File.READ) != 0: # error in opening the file, idk how to handle this
 		get_tree().quit()

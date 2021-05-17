@@ -12,10 +12,8 @@
 [ext_resource path="res://Audio/LevelBGM.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Stepper/Stepper.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Tiles/TileStandsNew.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Fall/FallArea.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Spike/Spike.tscn" type="PackedScene" id=14]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 519.903, 10 )
 
 [node name="Level6" type="Node2D"]
 script = ExtResource( 9 )
@@ -32,13 +30,6 @@ position = Vector2( 239.071, 56.9511 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 31.3193, 162.964 )
-
-[node name="Fall" type="Area2D" parent="."]
-position = Vector2( -2.64865, 41.319 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fall"]
-position = Vector2( 471.304, 240.436 )
-shape = SubResource( 1 )
 
 [node name="Turret" parent="." instance=ExtResource( 6 )]
 position = Vector2( 246.854, 136.685 )
@@ -145,3 +136,6 @@ texture = ExtResource( 3 )
 [node name="AudioStreamPlayer" parent="." instance=ExtResource( 10 )]
 
 [node name="Stopwatch" parent="." instance=ExtResource( 5 )]
+
+[node name="Fall" parent="." instance=ExtResource( 13 )]
+position = Vector2( 152.322, 36.9092 )

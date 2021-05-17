@@ -3,8 +3,8 @@ extends KinematicBody2D
 const FLOOR = Vector2(0,-1)
 const GRAVITY = 10
 
-var jump_power = -16*16
-var walk_speed = 16*5
+var jump_power = -256
+var walk_speed = 80
 var velocity = Vector2.ZERO
 var jumping = false
 var _name = "Player"
@@ -91,11 +91,6 @@ func set_position(pos):
 
 func play_sound():
 	get_node("AudioStreamPlayer").play()
-#	var asset = "res://Audio/jump_jekkech.wav"
-#	var sfx = load(asset)
-#	var aud = get_node("AudioStreamPlayer") 
-#	aud.stream = sfx
-#	aud.play()
 
 func set_camera(limit_right):
 	get_node("Camera2D").limit_right = limit_right

@@ -46,6 +46,8 @@ func _on_Door_entered(body):
 			"level": get_level_number(),
 			"time": get_node("Stopwatch").get_time()
 		}
+		if(get_level_number() == 7):
+			Global.player_data["current_level"] = 1		
 		Global.save_record(dict)
 		if level_number != TOTAL_LEVELS:
 			get_tree().change_scene("res://Levels/Level"+str(get_level_number()+1)+".tscn")	
