@@ -20,6 +20,7 @@ run/main_scene="res://GUI/MainMenu.tscn"
 config/use_custom_user_dir=true
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
+config/windows_native_icon="res://test.ico"
 
 [audio]
 
