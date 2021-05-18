@@ -6,7 +6,6 @@ func _ready():
 	$AnimationPlayer.play("walk-to-end")
 	pass 
 
-
 func _physics_process(_delta):
 	pass
 

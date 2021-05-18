@@ -2,14 +2,12 @@ extends "BaseLevel.gd"
 
 onready var Bat = preload("res://Actors/Bat/Bat.tscn")
 
-
 func _ready():
 	initialize(3,7,960)
 	get_node("Potion").connect("reveal_keys",self,"_on_Potion_collect")
 	player.connect("die",self,"_on_Player_die")
 	make_keys_invisible(true)
 	pass
-
 
 func _on_Player_die():
 	get_node("Timer").stop()

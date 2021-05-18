@@ -12,10 +12,10 @@ font_data = ExtResource( 1 )
 [node name="Stopwatch_Label" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -110.0
-margin_top = 8.0
-margin_right = -3.0
-margin_bottom = 19.0
+margin_left = -110.5
+margin_top = 7.5
+margin_right = -3.5
+margin_bottom = 18.5
 grow_horizontal = 2
 custom_fonts/font = SubResource( 1 )
 align = 1

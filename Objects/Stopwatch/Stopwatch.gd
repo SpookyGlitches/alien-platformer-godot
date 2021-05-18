@@ -11,9 +11,8 @@ func _process(delta):
 	var mils = fmod(time,1) *100
 	var secs = fmod(time,60)
 	var mins = fmod(time, 60*60)/60
-	time_passed ="%02d : %02d: %02d" % [mins,secs, mils]
+	time_passed ="%02d:%02d:%02d" % [mins,secs, mils]
 	text = time_passed
-	print(time)
 	pass
 	
 func _ready():
