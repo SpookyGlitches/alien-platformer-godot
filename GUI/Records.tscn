@@ -122,4 +122,5 @@ align = 2
 [node name="Select" parent="." instance=ExtResource( 7 )]
 
 [node name="Enter" parent="." instance=ExtResource( 8 )]
+
 [connection signal="finished" from="Enter" to="." method="_on_Enter_finished"]

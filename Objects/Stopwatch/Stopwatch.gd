@@ -1,23 +1,31 @@
-extends CanvasLayer
-
+extends Label
 
 var time = 0.0
-onready var label = get_node("Label")
+var timer_on = false
+var time_passed
 
+func _process(delta):
+	if(timer_on):
+		time += delta
+	
+	var mils = fmod(time,1) *100
+	var secs = fmod(time,60)
+	var mins = fmod(time, 60*60)/60
+	time_passed ="%02d:%02d:%02d" % [mins,secs, mils]
+	text = time_passed
+	pass
+	
 func _ready():
 	stop()
 	start()
-	pass
-
-func _process(delta):
-	time += delta
-	label.set_text(str(int(get_time())))
-
+	pass	
+	
 func start():
-	set_process(true)
-
+	timer_on = true
+	
 func get_time():
+	
 	return time
 
 func stop():
-	set_process(false)
+	timer_on = false

@@ -165,4 +165,5 @@ shape = SubResource( 5 )
 tile_data = PoolIntArray( 524297, 2, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 0, 0, 589833, 4, 0, 589846, 3, 0, 655369, 4, 0, 655382, 3, 0, 720905, 6, 0, 720918, 5, 0 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 15 )]
+
 [connection signal="finished" from="HBoxContainer/VBoxContainer/MenuOptions/Enter" to="HBoxContainer/VBoxContainer/MenuOptions" method="_on_Enter_finished"]

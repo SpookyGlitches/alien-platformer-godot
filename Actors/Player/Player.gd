@@ -53,7 +53,8 @@ func change_velocity(axis,change):
 		velocity.y += change	
 		if jumping && is_on_floor():
 			jumping = false
-
+		elif (is_on_ceiling()):
+			velocity.y += change
 	
 func play_animation(movement):
 	var anim_sprite = get_node("AnimatedSprite")
