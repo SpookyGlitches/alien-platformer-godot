@@ -19,7 +19,7 @@ config/description="Control the player by the arrow keys and spacebar as it cont
 run/main_scene="res://GUI/MainMenu.tscn"
 config/use_custom_user_dir=true
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://Gameicon.png"
+config/icon="res://GameiconFinal.png"
 
 [audio]
 
