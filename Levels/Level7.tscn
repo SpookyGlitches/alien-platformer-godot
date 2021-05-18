@@ -125,10 +125,11 @@ position = Vector2( 264.083, 120.961 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 13 )]
 
 [node name="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
-position = Vector2( 476.607, 97.1457 )
+position = Vector2( 487.298, 170.199 )
 scale = Vector2( 0.509099, 0.491654 )
 
 [node name="Stopwatch" parent="." instance=ExtResource( 14 )]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="ParallaxBackground"]

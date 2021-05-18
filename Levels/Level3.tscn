@@ -104,17 +104,15 @@ shape = SubResource( 1 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 404, 124 )
+position = Vector2( 378.573, 168.497 )
 scale = Vector2( 0.389266, 0.389266 )
 texture = ExtResource( 11 )
 
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-visible = false
 position = Vector2( 111.339, 15.4597 )
 scale = Vector2( 0.754113, 0.754112 )
 
 [node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-visible = false
 position = Vector2( 350.1, 15.1143 )
 scale = Vector2( 0.754113, 0.754112 )
 

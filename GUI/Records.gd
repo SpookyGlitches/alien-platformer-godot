@@ -37,11 +37,13 @@ func _input(event):
 		get_node("Enter").play()
 	
 func format_to_time_string(seconds):
-	var mins = int(seconds /1000)
-	var secs = int(seconds-1000) / 100
-	var mils = int(seconds-1000) % 100
-	return "%0*d" % [2,mins] + ":"+ "%0*d" %[2,secs] + ":" + "%0*d" %[2,mils]
-
+	var hh = int(seconds/3600)
+	var mins = int((seconds-hh*3600)/60)
+	var secs = int(seconds-hh*3600-mins*60)
+	var mils = int(seconds-hh*3600-mins-secs) % 1000
+	
+	return "%0*d" % [2,hh] + ":"+ "%0*d" %[2,mins] + ":" + "%0*d" %[2,secs] 
+	
 func _on_Enter_finished():
 	Global.bgm_helper = get_node("MenuBGM").get_playback_position()
 	get_tree().change_scene("res://GUI/MainMenu.tscn")
