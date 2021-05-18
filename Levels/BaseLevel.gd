@@ -44,7 +44,7 @@ func _on_Door_entered(body):
 	else:
 		var dict = {
 			"level": get_level_number(),
-			"time": get_node("Stopwatch").get_time()
+			"time": get_node("Stopwatch/Stopwatch_Label").get_time()
 		}
 		if(get_level_number() == 7):
 			Global.player_data["current_level"] = 1		

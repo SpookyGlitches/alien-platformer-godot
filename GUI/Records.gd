@@ -38,9 +38,10 @@ func _input(event):
 	
 func format_to_time_string(seconds):
 	var hh = int(seconds/3600)
-	var mm = int((seconds-hh*3600)/60)
-	var ss = int(seconds-hh*3600-mm*60)
-	return "%0*d" % [2,hh] + ":"+ "%0*d" %[2,mm] + ":" + "%0*d" %[2,ss]
+	var mins = int((seconds-hh*3600)/60)
+	var secs = int(seconds-hh*3600-mins*60)
+	var mils = int(seconds-hh*3600-mins*60) / 100
+	return "%0*d" % [2,mins] + ":"+ "%0*d" %[2,secs] + ":" + "%0*d" %[2,mils]
 
 func _on_Enter_finished():
 	Global.bgm_helper = get_node("MenuBGM").get_playback_position()
