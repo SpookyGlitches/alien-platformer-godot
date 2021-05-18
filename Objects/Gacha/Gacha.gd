@@ -1,5 +1,7 @@
 extends Area2D
 
+#signal load_previous_level
+
 func _ready():
 	pass
 	
