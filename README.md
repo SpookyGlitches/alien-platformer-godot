@@ -1,5 +1,5 @@
-# The Lost Alien 👽
-Control the player by the arrow keys and spacebar as it continually runs forward. Along  the way, you have to collect key/s that will help you pass through a door to proceed to a higher level while avoiding various obstacles. The game has seven different levels, and as it  progresses, the intensity changes as the game advances along with the environment and  enemy�s appearance. The goal of the game is to finish all levels with the shortest possible time.
+# The Lost Alien 
+Control the player by the arrow keys and spacebar as it continually runs forward. Along  the way, you have to collect key/s that will help you pass through a door to proceed to a higher level while avoiding various obstacles. The game has seven different levels, and as it  progresses, the intensity changes as the game advances along with the environment and  enemy’s appearance. The goal of the game is to finish all levels with the shortest possible time.
 
 This project is a requirement for a course. The game is not optimized and not fun. [Godot](https://godotengine.org/) engine was picked because it's FOSS and easy to pick up as they say.
 
